@@ -36,40 +36,52 @@ const EngagementChart = ({ data, title }) => {
 
   useEffect(() => {
     if (data) {
-      const labels = Array.from({ length: 14 }, (_, i) => `Day ${i + 1}`);
-      
-      const datasets = Object.keys(data).map((platform, index) => {
-        const colors = [
-          { borderColor: 'rgb(53, 162, 235)', backgroundColor: 'rgba(53, 162, 235, 0.5)' },
-          { borderColor: 'rgb(255, 99, 132)', backgroundColor: 'rgba(255, 99, 132, 0.5)' },
-          { borderColor: 'rgb(75, 192, 192)', backgroundColor: 'rgba(75, 192, 192, 0.5)' },
-          { borderColor: 'rgb(255, 159, 64)', backgroundColor: 'rgba(255, 159, 64, 0.5)' },
-        ];
+      // Check if data is an array (from mock data) or an object (from API)
+      if (Array.isArray(data)) {
+        // Data is already in the correct format (from mock data)
+        setChartData({
+          labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7', 'Day 8', 'Day 9', 'Day 10', 'Day 11', 'Day 12', 'Day 13', 'Day 14'],
+          datasets: data.map(dataset => ({
+            ...dataset,
+            borderWidth: activeDataset === dataset.label ? 3 : 2,
+            pointRadius: activeDataset === dataset.label ? 5 : 3,
+            pointHoverRadius: activeDataset === dataset.label ? 8 : 6,
+            tension: 0.3,
+            fill: activeDataset === dataset.label ? true : false,
+          }))
+        });
+      } else {
+        // Original format from API
+        const labels = Array.from({ length: 14 }, (_, i) => `Day ${i + 1}`);
         
-        return {
-          label: platform.charAt(0).toUpperCase() + platform.slice(1),
-          data: data[platform].dailyStats,
-          borderColor: colors[index % colors.length].borderColor,
-          backgroundColor: colors[index % colors.length].backgroundColor,
-          tension: 0.4,
-          borderWidth: activeDataset === platform ? 3 : 2,
-          pointRadius: activeDataset === platform ? 5 : 3,
-          pointBackgroundColor: colors[index % colors.length].borderColor,
-          pointBorderColor: theme.palette.background.paper,
-          pointBorderWidth: 2,
-          pointHoverRadius: 6,
-          pointHoverBorderWidth: 3,
-          fill: activeDataset === platform ? 'origin' : false,
-          order: activeDataset === platform ? 0 : index + 1,
-        };
-      });
-
-      setChartData({
-        labels,
-        datasets,
-      });
+        const datasets = Object.keys(data).map((platform, index) => {
+          const colors = [
+            { borderColor: 'rgb(53, 162, 235)', backgroundColor: 'rgba(53, 162, 235, 0.5)' },
+            { borderColor: 'rgb(255, 99, 132)', backgroundColor: 'rgba(255, 99, 132, 0.5)' },
+            { borderColor: 'rgb(75, 192, 192)', backgroundColor: 'rgba(75, 192, 192, 0.5)' },
+            { borderColor: 'rgb(255, 159, 64)', backgroundColor: 'rgba(255, 159, 64, 0.5)' },
+          ];
+          
+          return {
+            label: platform.charAt(0).toUpperCase() + platform.slice(1),
+            data: Array.from({ length: 14 }, () => Math.floor(Math.random() * 100)),
+            borderColor: colors[index % colors.length].borderColor,
+            backgroundColor: colors[index % colors.length].backgroundColor,
+            borderWidth: activeDataset === platform ? 3 : 2,
+            pointRadius: activeDataset === platform ? 5 : 3,
+            pointHoverRadius: activeDataset === platform ? 8 : 6,
+            tension: 0.3,
+            fill: activeDataset === platform ? true : false,
+          };
+        });
+        
+        setChartData({
+          labels,
+          datasets,
+        });
+      }
     }
-  }, [data, activeDataset, theme]);
+  }, [data, activeDataset]);
 
   const options = {
     responsive: true,

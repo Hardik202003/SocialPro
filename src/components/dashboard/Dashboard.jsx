@@ -10,7 +10,7 @@ import {
 } from '@mui/icons-material';
 import StatCard from './StatCard';
 import EngagementChart from './EngagementChart';
-import { fetchSocialMediaStats } from '../../services/api';
+import { fetchSocialMediaStats, MOCK_SOCIAL_MEDIA_STATS } from '../../services/api';
 
 const Dashboard = () => {
   const [stats, setStats] = useState(null);
@@ -331,16 +331,46 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      {/* Engagement Chart */}
-      <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>
-        Engagement Analytics
-      </Typography>
-      
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <EngagementChart data={stats} title="Engagement Trends (Last 14 Days)" />
-        </Grid>
-      </Grid>
+      {/* Engagement Analytics */}
+      <Box sx={{ mb: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+          <Box 
+            sx={{ 
+              width: 40, 
+              height: 40, 
+              borderRadius: '50%', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.dark} 100%)`,
+              mr: 2
+            }}
+          >
+            <TrendingUpIcon sx={{ color: 'white' }} />
+          </Box>
+          <Typography variant="h6" fontWeight="bold">
+            Engagement Analytics
+          </Typography>
+        </Box>
+        
+        <Paper 
+          elevation={0} 
+          sx={{ 
+            p: 3, 
+            borderRadius: 4,
+            background: theme.palette.mode === 'dark' 
+              ? alpha(theme.palette.background.paper, 0.8)
+              : alpha(theme.palette.background.paper, 0.8),
+            backdropFilter: 'blur(10px)',
+            border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+          }}
+        >
+          <EngagementChart 
+            data={stats?.engagementData?.datasets || []} 
+            title="Engagement over the last 14 days" 
+          />
+        </Paper>
+      </Box>
     </Box>
   );
 };
