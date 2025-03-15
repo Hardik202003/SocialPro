@@ -1,4 +1,4 @@
-# Social Media Dashboard
+# SocialPro Dashboard
 
 A comprehensive dashboard for managing and analyzing social media accounts across multiple platforms. This application provides analytics, scheduling capabilities, and a unified interface for social media management.
 
@@ -28,8 +28,8 @@ A comprehensive dashboard for managing and analyzing social media accounts acros
 
 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd social-media-dashboard
+git clone https://github.com/Hardik202003/SocialPro.git
+cd SocialPro
 ```
 
 2. Install dependencies
@@ -57,6 +57,10 @@ npm run server:dev
 - `GET /api/schedule` - Get scheduled posts
 - `POST /api/schedule` - Create a new scheduled post
 - `DELETE /api/schedule/:id` - Delete a scheduled post
+
+## Live Demo
+
+Visit the live demo at: https://hardik202003.github.io/SocialPro/
 
 ## License
 
