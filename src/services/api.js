@@ -20,7 +20,7 @@ export const MOCK_SOCIAL_MEDIA_STATS = {
       },
       {
         id: 'fb2',
-        content: 'We're excited to announce our partnership with @TechInnovators',
+        content: 'We\'re excited to announce our partnership with @TechInnovators',
         likes: 287,
         comments: 42,
         shares: 19,
@@ -36,7 +36,7 @@ export const MOCK_SOCIAL_MEDIA_STATS = {
     recentTweets: [
       {
         id: 'tw1',
-        content: 'Our team is growing! We're looking for talented developers to join us. Apply now: socialpro.careers/jobs',
+        content: 'Our team is growing! We\'re looking for talented developers to join us. Apply now: socialpro.careers/jobs',
         likes: 156,
         retweets: 48,
         replies: 23,
@@ -84,7 +84,7 @@ export const MOCK_SOCIAL_MEDIA_STATS = {
     recentPosts: [
       {
         id: 'li1',
-        content: 'We're proud to announce that SocialPro has been recognized as one of the Top 50 SaaS Companies to Watch in 2023!',
+        content: 'We\'re proud to announce that SocialPro has been recognized as one of the Top 50 SaaS Companies to Watch in 2023!',
         likes: 423,
         comments: 47,
         shares: 38,
@@ -112,14 +112,14 @@ export const MOCK_SOCIAL_MEDIA_STATS = {
       id: 'act2',
       platform: 'instagram',
       type: 'mention',
-      content: '@TechReviewer mentioned you in a post: "Impressed with @SocialPro's new analytics dashboard!"',
+      content: '@TechReviewer mentioned you in a post: "Impressed with @SocialPro\'s new analytics dashboard!"',
       time: '5 hours ago'
     },
     {
       id: 'act3',
       platform: 'twitter',
       type: 'reply',
-      content: 'You replied to @MarketingGuru: "Thanks for the feedback! We're working on implementing those features."',
+      content: 'You replied to @MarketingGuru: "Thanks for the feedback! We\'re working on implementing those features."',
       time: '1 day ago'
     },
     {
