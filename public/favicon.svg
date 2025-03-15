@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6E27A" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#AA771C" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1" flood-color="#000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  
+  <!-- Luxury circle background -->
+  <circle cx="12" cy="12" r="10" fill="url(#goldGradient)" filter="url(#shadow)" />
+  
+  <!-- Decorative ring -->
+  <circle cx="12" cy="12" r="8.5" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="0.5" fill="none" />
+  
+  <!-- S letter with premium styling -->
+  <path d="M16 10c0 2.5-4 2.5-4 5 0 1.5 1.5 2 3 2 1 0 2-.5 2.5-1" stroke="white" stroke-width="1.5" />
+  <path d="M8 14c0-2.5 4-2.5 4-5 0-1.5-1.5-2-3-2-1 0-2 .5-2.5 1" stroke="white" stroke-width="1.5" />
+  
+  <!-- Subtle shine effect -->
+  <circle cx="9" cy="8" r="1" fill="white" fill-opacity="0.7" />
+</svg> 
