@@ -58,6 +58,3 @@ npm run server:dev
 - `POST /api/schedule` - Create a new scheduled post
 - `DELETE /api/schedule/:id` - Delete a scheduled post
 
-## License
-
-MIT
